@@ -25,6 +25,7 @@ public class World extends JPanel
 		fps = Integer.parseInt(e.getFps());
 		insert = e.getInsert();
 		cellSize = Integer.parseInt(e.getCellSize());
+		worldSize = new Dimension(getWidth() / cellSize - 2, getHeight() / cellSize - 2);
 		updateArraySize();
 	}
 
@@ -83,16 +84,6 @@ public class World extends JPanel
 
 	public void resetBoard() {
 		point.clear();
-	}
-
-	public void randomlyFillBoard(int percent) {
-		for (int i = 0; i < worldSize.width; i++) {
-			for (int j = 0; j < worldSize.height; j++) {
-				if (Math.random() * 100 < percent) {
-					addPoint(i, j);
-				}
-			}
-		}
 	}
 
 	@Override
